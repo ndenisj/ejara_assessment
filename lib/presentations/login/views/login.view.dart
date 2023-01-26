@@ -39,7 +39,7 @@ class LoginView extends StatelessWidget {
       ),
       body: SafeArea(
         child: SingleChildScrollView(
-          padding: EdgeInsets.all(20),
+          padding: const EdgeInsets.all(20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -53,11 +53,11 @@ class LoginView extends StatelessWidget {
                 children: [
                   Text(
                     "Username",
-                    style: theme.bodyText1,
+                    style: theme.bodyText1.copyWith(fontSize: 14),
                   ),
                   const SizedBox(height: 3),
                   TextFormField(
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       hintText: 'Username',
                     ),
                   ),
@@ -69,7 +69,7 @@ class LoginView extends StatelessWidget {
                 children: [
                   Text(
                     "Password",
-                    style: theme.bodyText1,
+                    style: theme.bodyText1.copyWith(fontSize: 14),
                   ),
                   const SizedBox(height: 3),
                   TextFormField(
@@ -78,7 +78,7 @@ class LoginView extends StatelessWidget {
                       hintText: 'Password',
                       suffix: InkWell(
                         onTap: () {},
-                        child: Icon(Remix.eye_line),
+                        child: const Icon(Remix.eye_line),
                       ),
                     ),
                   ),
@@ -111,7 +111,7 @@ class LoginView extends StatelessWidget {
                     ),
                   );
                 },
-                options: EjaraButtonOptions(),
+                options: const EjaraButtonOptions(),
               ),
             ],
           ),

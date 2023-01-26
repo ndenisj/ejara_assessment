@@ -108,7 +108,7 @@ class LightModeTheme extends EjaraTheme {
   Color? alternate = const Color(0xFFFD956B);
   Color? primaryBackground = const Color(0xFFF3F7F5);
   Color? secondaryBackground = const Color(0xFFFFFFFF);
-  Color? primaryText = const Color(0xFF8774CE);
+  Color? primaryText = const Color(0xFF57636C);
   // Color? primaryText = const Color(0xFF101213);
   Color? secondaryText = const Color(0xFF57636C);
 

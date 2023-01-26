@@ -1,6 +1,7 @@
 import "package:flutter/material.dart";
 import 'package:remixicon/remixicon.dart';
 
+import '../presentations/payment/views/new_wallet.view.dart';
 import '../utils/ejara_theme.dart';
 import 'ejara_button.dart';
 import 'or_divider.widget.dart';
@@ -123,12 +124,14 @@ class PaymentMethodWidget extends StatelessWidget {
                       text: "Another mobile money method",
                       icon: const Icon(Remix.add_line),
                       onPressed: () {
-                        // Navigator.pushReplacement(
-                        //   context,
-                        //   MaterialPageRoute(
-                        //     builder: (context) => const ChoosePaymentMethodView(),
-                        //   ),
-                        // );
+                        Navigator.pop(context);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const NewWalletView(),
+                            fullscreenDialog: true,
+                          ),
+                        );
                       },
                       options: EjaraButtonOptions(
                         color: theme.secondaryColor,

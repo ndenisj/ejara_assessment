@@ -45,8 +45,9 @@ class _EjaraAppState extends State<EjaraApp> {
         dividerTheme: DividerThemeData(
           color: EjaraTheme.of(context).primaryColor!.withOpacity(0.2),
         ),
+
         inputDecorationTheme: InputDecorationTheme(
-          contentPadding: EdgeInsets.symmetric(horizontal: 12),
+          contentPadding: EdgeInsets.symmetric(horizontal: 12, vertical: 18),
           errorMaxLines: 1,
           hintStyle: EjaraTheme.of(context).bodyText2,
           labelStyle: EjaraTheme.of(context).bodyText1,
@@ -55,24 +56,23 @@ class _EjaraAppState extends State<EjaraApp> {
               .copyWith(color: ColorManager.error),
           // borders
           enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10),
-            borderSide:
-                BorderSide(color: EjaraTheme.of(context).secondaryColor!),
+            borderRadius: BorderRadius.circular(15),
+            borderSide: BorderSide(color: ColorManager.grey),
           ),
           focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(15),
             borderSide: BorderSide(
-              color: EjaraTheme.of(context).secondaryColor!,
+              color: ColorManager.grey,
             ),
           ),
           errorBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(15),
             borderSide: BorderSide(
               color: ColorManager.error,
             ),
           ),
           focusedErrorBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(15),
             borderSide: BorderSide(
               color: ColorManager.error,
             ),

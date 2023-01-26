@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 class ColorManager {
   static Color primary = HexColor.fromHex("#0E6134");
   static Color transparent = Colors.transparent;
-
   static Color white = HexColor.fromHex("#FFFFFF");
   static Color error = HexColor.fromHex("#FC2417");
+  static Color grey = Colors.grey;
 }
 
 extension HexColor on Color {
