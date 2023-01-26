@@ -43,7 +43,7 @@ class _EjaraAppState extends State<EjaraApp> {
         iconTheme: IconThemeData(color: EjaraTheme.of(context).primaryColor),
         primaryColor: EjaraTheme.of(context).primaryColor,
         dividerTheme: DividerThemeData(
-          color: EjaraTheme.of(context).primaryColor!.withOpacity(0.5),
+          color: EjaraTheme.of(context).primaryColor!.withOpacity(0.2),
         ),
         inputDecorationTheme: InputDecorationTheme(
           contentPadding: EdgeInsets.symmetric(horizontal: 12),

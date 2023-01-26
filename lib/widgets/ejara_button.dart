@@ -103,8 +103,8 @@ class _EjaraButtonWidgetState extends State<EjaraButtonWidget> {
       textWidget = textWidget;
       // textWidget = Flexible(child: textWidget);
       return Container(
-        height: widget.options!.height,
-        width: widget.options!.width,
+        height: widget.options!.height ?? size.height * 0.06,
+        width: widget.options!.width ?? double.infinity,
         child: ElevatedButton.icon(
           icon: Padding(
             padding: widget.options!.iconPadding ?? EdgeInsets.zero,
@@ -122,7 +122,7 @@ class _EjaraButtonWidgetState extends State<EjaraButtonWidget> {
             backgroundColor: widget.options!.color ?? theme.primaryColor,
             shape: RoundedRectangleBorder(
               borderRadius:
-                  BorderRadius.circular(widget.options!.borderRadius ?? 28),
+                  BorderRadius.circular(widget.options!.borderRadius ?? 15),
               side: widget.options!.borderSide ?? BorderSide.none,
             ),
             elevation: widget.options!.elevation,

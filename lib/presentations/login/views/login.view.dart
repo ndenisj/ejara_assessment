@@ -1,3 +1,4 @@
+import 'package:ejara_assessment/presentations/payment/views/choose_payment_method.view.dart';
 import 'package:ejara_assessment/utils/ejara_theme.dart';
 import 'package:ejara_assessment/widgets/ejara_button.dart';
 import 'package:flutter/material.dart';
@@ -12,6 +13,7 @@ class LoginView extends StatelessWidget {
     var theme = EjaraTheme.of(context);
 
     return Scaffold(
+      backgroundColor: theme.primaryBackground,
       bottomNavigationBar: SizedBox(
         height: size.height * 0.1,
         child: Center(
@@ -101,7 +103,14 @@ class LoginView extends StatelessWidget {
               SizedBox(height: size.height * 0.02),
               EjaraButtonWidget(
                 text: "Sign in",
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const ChoosePaymentMethodView(),
+                    ),
+                  );
+                },
                 options: EjaraButtonOptions(),
               ),
             ],
