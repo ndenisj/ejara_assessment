@@ -43,6 +43,7 @@ abstract class EjaraTheme {
 
   Color? primaryColor;
   Color? secondaryColor;
+  Color? iconColor;
   Color? tertiaryColor;
   Color? alternate;
   Color? primaryBackground;
@@ -89,7 +90,7 @@ abstract class EjaraTheme {
       );
   TextStyle get bodyText1 => GoogleFonts.getFont(
         'Poppins',
-        color: primaryText,
+        color: primaryColor,
         fontWeight: FontWeight.normal,
         fontSize: 16,
       );
@@ -102,15 +103,16 @@ abstract class EjaraTheme {
 }
 
 class LightModeTheme extends EjaraTheme {
-  Color? primaryColor = const Color(0xFF13005A);
-  Color? secondaryColor = Color(0xFF8774CE);
+  Color? primaryColor = const Color(0xFF11155D);
+  Color? secondaryColor = const Color(0xFF6F77E5);
+  Color? iconColor = const Color(0xFF525AE1);
   Color? tertiaryColor = const Color(0xFFEE8B60);
   Color? alternate = const Color(0xFFFD956B);
-  Color? primaryBackground = const Color(0xFFF3F7F5);
+  Color? primaryBackground = const Color(0xFFF9F9FB);
   Color? secondaryBackground = const Color(0xFFFFFFFF);
   Color? primaryText = const Color(0xFF57636C);
   // Color? primaryText = const Color(0xFF101213);
-  Color? secondaryText = const Color(0xFF57636C);
+  Color? secondaryText = const Color(0xFF4C4D84);
 
   Color? primaryBtnText = const Color(0xFFFFFFFF);
   Color? ghostWhite = const Color(0xFFFAFAFF);

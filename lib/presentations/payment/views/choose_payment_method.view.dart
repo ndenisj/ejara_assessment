@@ -25,8 +25,9 @@ class ChoosePaymentMethodView extends StatelessWidget {
                 style: theme.title1,
                 textAlign: TextAlign.center,
               ),
-              SizedBox(height: size.height * 0.02),
+              SizedBox(height: size.height * 0.01),
               Card(
+                elevation: 0,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20.0),
                 ),
@@ -52,8 +53,9 @@ class ChoosePaymentMethodView extends StatelessWidget {
                           SizedBox(height: size.height * 0.01),
                           Text(
                             "Ejara Flex",
-                            style: theme.subtitle2.copyWith(
+                            style: theme.bodyText2.copyWith(
                               fontSize: 16,
+                              fontWeight: FontWeight.bold,
                             ),
                           ),
                           SizedBox(height: size.height * 0.01),
@@ -68,7 +70,7 @@ class ChoosePaymentMethodView extends StatelessWidget {
                               ),
                               TextSpan(
                                 text: 'CFA',
-                                style: theme.bodyText1.copyWith(
+                                style: theme.bodyText2.copyWith(
                                   fontSize: 26,
                                 ),
                               ),

@@ -39,7 +39,7 @@ class PaymentMethodWidget extends StatelessWidget {
               radius: size.height * 0.025,
               child: Icon(
                 Remix.money_dollar_circle_line,
-                color: theme.primaryColor,
+                color: theme.iconColor,
               ),
             ),
             const SizedBox(width: 10),
@@ -51,7 +51,6 @@ class PaymentMethodWidget extends StatelessWidget {
                     'Cash payment',
                     style: theme.bodyText1.copyWith(
                       color: theme.primaryColor,
-                      fontWeight: FontWeight.bold,
                     ),
                   ),
                   Text(
@@ -122,7 +121,10 @@ class PaymentMethodWidget extends StatelessWidget {
                     SizedBox(height: size.height * 0.03),
                     EjaraButtonWidget(
                       text: "Another mobile money method",
-                      icon: const Icon(Remix.add_line),
+                      icon: Icon(
+                        Remix.add_line,
+                        color: theme.secondaryColor,
+                      ),
                       onPressed: () {
                         Navigator.pop(context);
                         Navigator.push(
@@ -134,7 +136,12 @@ class PaymentMethodWidget extends StatelessWidget {
                         );
                       },
                       options: EjaraButtonOptions(
-                        color: theme.secondaryColor,
+                        elevation: 0,
+                        color: const Color(0xFFEDF0FC),
+                        textStyle: theme.subtitle2.copyWith(
+                          color: theme.secondaryColor,
+                          fontSize: 16,
+                        ),
                       ),
                     ),
                     SizedBox(height: size.height * 0.03),

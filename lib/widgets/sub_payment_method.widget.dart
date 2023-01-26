@@ -13,6 +13,7 @@ class SubPaymentMethodWidget extends StatelessWidget {
     var theme = EjaraTheme.of(context);
 
     return Card(
+      elevation: 0,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(12.0),
       ),

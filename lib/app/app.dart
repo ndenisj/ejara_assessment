@@ -40,10 +40,10 @@ class _EjaraAppState extends State<EjaraApp> {
       ],
       theme: ThemeData(brightness: Brightness.light).copyWith(
         // scaffoldBackgroundColor: ColorManager.white,
-        iconTheme: IconThemeData(color: EjaraTheme.of(context).primaryColor),
+        iconTheme: IconThemeData(color: EjaraTheme.of(context).iconColor),
         primaryColor: EjaraTheme.of(context).primaryColor,
         dividerTheme: DividerThemeData(
-          color: EjaraTheme.of(context).primaryColor!.withOpacity(0.2),
+          color: EjaraTheme.of(context).primaryColor!.withOpacity(0.1),
         ),
 
         inputDecorationTheme: InputDecorationTheme(

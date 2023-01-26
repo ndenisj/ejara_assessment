@@ -36,9 +36,9 @@ class _NewWalletViewState extends State<NewWalletView> {
                 },
                 child: Container(
                   padding: const EdgeInsets.all(8),
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     shape: BoxShape.circle,
-                    color: theme.secondaryColor!.withOpacity(0.5),
+                    color: Color(0xFFEDF0FC),
                   ),
                   child: Icon(
                     Remix.close_line,
