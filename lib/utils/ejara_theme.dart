@@ -97,18 +97,19 @@ abstract class EjaraTheme {
         'Poppins',
         color: secondaryText,
         fontWeight: FontWeight.w300,
-        fontSize: 14,
+        fontSize: 16,
       );
 }
 
 class LightModeTheme extends EjaraTheme {
-  Color? primaryColor = const Color(0xFF0E6134);
-  Color? secondaryColor = const Color(0xFFFC682B);
+  Color? primaryColor = const Color(0xFF13005A);
+  Color? secondaryColor = Color(0xFF8774CE);
   Color? tertiaryColor = const Color(0xFFEE8B60);
   Color? alternate = const Color(0xFFFD956B);
   Color? primaryBackground = const Color(0xFFF3F7F5);
   Color? secondaryBackground = const Color(0xFFFFFFFF);
-  Color? primaryText = const Color(0xFF101213);
+  Color? primaryText = const Color(0xFF8774CE);
+  // Color? primaryText = const Color(0xFF101213);
   Color? secondaryText = const Color(0xFF57636C);
 
   Color? primaryBtnText = const Color(0xFFFFFFFF);
@@ -117,7 +118,7 @@ class LightModeTheme extends EjaraTheme {
 }
 
 class DarkModeTheme extends EjaraTheme {
-  Color? primaryColor = const Color(0xFF0E6134);
+  Color? primaryColor = const Color(0xFF13005A);
   Color? secondaryColor = const Color(0xFFFC682B);
   Color? tertiaryColor = const Color(0xFFEE8B60);
   Color? alternate = const Color(0xFFFD956B);
