@@ -5,6 +5,8 @@ import 'package:google_fonts/google_fonts.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../presentations/resources/color_manager.dart';
+
 const kThemeModeKey = '__theme_mode__';
 SharedPreferences? _prefs;
 
@@ -164,4 +166,116 @@ extension TextStyleHelper on TextStyle {
               decoration: decoration,
               height: lineHeight,
             );
+}
+
+//
+ThemeData buildLightTheme(BuildContext context) {
+  return ThemeData(brightness: Brightness.light).copyWith(
+    iconTheme: IconThemeData(color: EjaraTheme.of(context).iconColor),
+    primaryColor: EjaraTheme.of(context).primaryColor,
+    dividerTheme: DividerThemeData(
+      color: EjaraTheme.of(context).primaryColor!.withOpacity(0.1),
+    ),
+    inputDecorationTheme: _buildLightInputDecorationTheme(context),
+    appBarTheme: AppBarTheme(
+      elevation: 0,
+      backgroundColor: EjaraTheme.of(context).primaryBackground,
+      iconTheme: IconThemeData(
+        color: EjaraTheme.of(context).primaryText,
+      ),
+    ),
+  );
+}
+
+ThemeData buildDarkTheme(BuildContext context) {
+  return ThemeData(brightness: Brightness.dark).copyWith(
+    scaffoldBackgroundColor: ColorManager.white,
+    iconTheme: IconThemeData(color: EjaraTheme.of(context).primaryColor),
+    primaryColor: EjaraTheme.of(context).primaryColor,
+    inputDecorationTheme: _buildDarkInputDecorationTheme(context),
+  );
+}
+
+InputDecorationTheme _buildLightInputDecorationTheme(BuildContext context) {
+  return InputDecorationTheme(
+    contentPadding: EdgeInsets.symmetric(horizontal: 12, vertical: 18),
+    errorMaxLines: 1,
+    hintStyle: EjaraTheme.of(context).bodyText2,
+    labelStyle: EjaraTheme.of(context).bodyText1,
+    errorStyle:
+        EjaraTheme.of(context).bodyText1.copyWith(color: ColorManager.error),
+    // borders
+    enabledBorder: OutlineInputBorder(
+      borderRadius: BorderRadius.circular(15),
+      borderSide: BorderSide(color: ColorManager.grey),
+    ),
+    focusedBorder: OutlineInputBorder(
+      borderRadius: BorderRadius.circular(15),
+      borderSide: BorderSide(
+        color: ColorManager.grey,
+      ),
+    ),
+    errorBorder: OutlineInputBorder(
+      borderRadius: BorderRadius.circular(15),
+      borderSide: BorderSide(
+        color: ColorManager.error,
+      ),
+    ),
+    focusedErrorBorder: OutlineInputBorder(
+      borderRadius: BorderRadius.circular(15),
+      borderSide: BorderSide(
+        color: ColorManager.error,
+      ),
+    ),
+    // prefix
+    prefixIconColor: EjaraTheme.of(context).primaryColor!,
+    prefixStyle: EjaraTheme.of(context).bodyText1.copyWith(
+          fontSize: 18,
+        ),
+    // surfix
+    suffixIconColor: EjaraTheme.of(context).primaryColor!,
+  );
+}
+
+InputDecorationTheme _buildDarkInputDecorationTheme(BuildContext context) {
+  return InputDecorationTheme(
+    hintStyle: EjaraTheme.of(context).bodyText1,
+    labelStyle: EjaraTheme.of(context).bodyText1,
+    errorStyle:
+        EjaraTheme.of(context).bodyText1.copyWith(color: ColorManager.error),
+    errorMaxLines: 1,
+    // borders
+    enabledBorder: OutlineInputBorder(
+      borderRadius: BorderRadius.circular(16),
+      borderSide: BorderSide(
+        color: EjaraTheme.of(context).primaryColor!,
+      ),
+    ),
+    focusedBorder: OutlineInputBorder(
+      borderRadius: BorderRadius.circular(16),
+      borderSide: BorderSide(
+        color: EjaraTheme.of(context).primaryColor!,
+      ),
+    ),
+    errorBorder: OutlineInputBorder(
+      borderRadius: BorderRadius.circular(16),
+      borderSide: BorderSide(
+        color: ColorManager.error,
+      ),
+    ),
+    focusedErrorBorder: OutlineInputBorder(
+      borderRadius: BorderRadius.circular(16),
+      borderSide: BorderSide(
+        color: ColorManager.error,
+      ),
+    ),
+    // prefix
+    prefixIconColor: EjaraTheme.of(context).primaryColor!,
+    prefixStyle: EjaraTheme.of(context).bodyText1.copyWith(
+          fontSize: 18,
+          color: EjaraTheme.of(context).ghostWhite,
+        ),
+    // surfix
+    suffixIconColor: EjaraTheme.of(context).primaryColor!,
+  );
 }

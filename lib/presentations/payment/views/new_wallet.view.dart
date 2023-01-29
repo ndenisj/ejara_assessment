@@ -1,8 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:remixicon/remixicon.dart';
 
 import '../../../utils/ejara_theme.dart';
+import '../../../utils/ejara_utils.dart';
 import '../../../widgets/ejara_button.dart';
 
 class NewWalletView extends StatefulWidget {
@@ -13,8 +13,6 @@ class NewWalletView extends StatefulWidget {
 }
 
 class _NewWalletViewState extends State<NewWalletView> {
-  String _currentSelectedValue = '';
-
   String _mobile_operator = 'Orange Money';
 
   @override
@@ -52,12 +50,18 @@ class _NewWalletViewState extends State<NewWalletView> {
                 child: SingleChildScrollView(
                   child: Column(
                     children: [
-                      Text(
-                        "New mobile money",
-                        style: theme.title1,
-                        textAlign: TextAlign.center,
+                      // Text(
+                      //   "New mobile money",
+                      //   style: theme.title1,
+                      //   textAlign: TextAlign.center,
+                      // ),
+                      // SizedBox(height: size.height * 0.02),
+                      buildHeader(
+                        context: context,
+                        theme: theme,
+                        size: 0.02,
+                        header: 'New mobile money',
                       ),
-                      SizedBox(height: size.height * 0.02),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [

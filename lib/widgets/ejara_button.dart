@@ -66,7 +66,7 @@ class _EjaraButtonWidgetState extends State<EjaraButtonWidget> {
 
     Widget textWidget = loading
         ? Center(
-            child: Container(
+            child: SizedBox(
               width: 23,
               height: 23,
               child: CircularProgressIndicator(
@@ -93,7 +93,7 @@ class _EjaraButtonWidgetState extends State<EjaraButtonWidget> {
             try {
               await widget.onPressed!();
             } catch (e) {
-              print('On pressed error:\n$e');
+              // print('On pressed error:\n$e');
             }
             setState(() => loading = false);
           }
@@ -102,7 +102,7 @@ class _EjaraButtonWidgetState extends State<EjaraButtonWidget> {
     if (widget.icon != null || widget.iconData != null) {
       textWidget = textWidget;
       // textWidget = Flexible(child: textWidget);
-      return Container(
+      return SizedBox(
         height: widget.options!.height ?? size.height * 0.06,
         width: widget.options!.width ?? double.infinity,
         child: ElevatedButton.icon(
@@ -132,7 +132,7 @@ class _EjaraButtonWidgetState extends State<EjaraButtonWidget> {
       );
     }
 
-    return Container(
+    return SizedBox(
       height: widget.options!.height ?? size.height * 0.06,
       width: widget.options!.width ?? double.infinity,
       child: ElevatedButton(

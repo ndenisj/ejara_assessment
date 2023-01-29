@@ -1,8 +1,11 @@
+import 'package:ejara_assessment/presentations/login/controller/login.controller.dart';
 import 'package:ejara_assessment/presentations/login/views/login.view.dart';
+import 'package:ejara_assessment/services/network_service.dart';
+import 'package:ejara_assessment/shared/controllers/user.controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:provider/provider.dart';
 
-import '../presentations/resources/color_manager.dart';
 import '../utils/ejara_theme.dart';
 import '../utils/internationalization.dart';
 
@@ -25,123 +28,31 @@ class _EjaraAppState extends State<EjaraApp> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      localizationsDelegates: const [
-        EjaraLocalizationsDelegate(),
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider<LoginController>(
+            create: (_) => LoginController(NetworkService())),
+        ChangeNotifierProvider<UserController>(create: (_) => UserController()),
       ],
-      locale: _locale,
-      supportedLocales: const [
-        Locale('en', ''),
-        Locale('fr', ''),
-      ],
-      theme: ThemeData(brightness: Brightness.light).copyWith(
-        // scaffoldBackgroundColor: ColorManager.white,
-        iconTheme: IconThemeData(color: EjaraTheme.of(context).iconColor),
-        primaryColor: EjaraTheme.of(context).primaryColor,
-        dividerTheme: DividerThemeData(
-          color: EjaraTheme.of(context).primaryColor!.withOpacity(0.1),
-        ),
-
-        inputDecorationTheme: InputDecorationTheme(
-          contentPadding: EdgeInsets.symmetric(horizontal: 12, vertical: 18),
-          errorMaxLines: 1,
-          hintStyle: EjaraTheme.of(context).bodyText2,
-          labelStyle: EjaraTheme.of(context).bodyText1,
-          errorStyle: EjaraTheme.of(context)
-              .bodyText1
-              .copyWith(color: ColorManager.error),
-          // borders
-          enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(15),
-            borderSide: BorderSide(color: ColorManager.grey),
-          ),
-          focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(15),
-            borderSide: BorderSide(
-              color: ColorManager.grey,
-            ),
-          ),
-          errorBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(15),
-            borderSide: BorderSide(
-              color: ColorManager.error,
-            ),
-          ),
-          focusedErrorBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(15),
-            borderSide: BorderSide(
-              color: ColorManager.error,
-            ),
-          ),
-          // prefix
-          prefixIconColor: EjaraTheme.of(context).primaryColor!,
-          prefixStyle: EjaraTheme.of(context).bodyText1.copyWith(
-                fontSize: 18,
-              ),
-          // surfix
-          suffixIconColor: EjaraTheme.of(context).primaryColor!,
-        ),
-        appBarTheme: AppBarTheme(
-          elevation: 0,
-          backgroundColor: EjaraTheme.of(context).primaryBackground,
-          iconTheme: IconThemeData(
-            color: EjaraTheme.of(context).primaryText,
-          ),
-        ),
+      builder: (context, child) => MaterialApp(
+        debugShowCheckedModeBanner: false,
+        localizationsDelegates: const [
+          EjaraLocalizationsDelegate(),
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
+        locale: _locale,
+        supportedLocales: const [
+          Locale('en', ''),
+          Locale('fr', ''),
+        ],
+        theme: buildLightTheme(context),
+        darkTheme: buildDarkTheme(context),
+        themeMode: ThemeMode.light,
+        title: 'Ejara',
+        home: const LoginView(),
       ),
-      darkTheme: ThemeData(brightness: Brightness.dark).copyWith(
-        scaffoldBackgroundColor: ColorManager.white,
-        iconTheme: IconThemeData(color: EjaraTheme.of(context).primaryColor),
-        primaryColor: EjaraTheme.of(context).primaryColor,
-        inputDecorationTheme: InputDecorationTheme(
-          hintStyle: EjaraTheme.of(context).bodyText1,
-          labelStyle: EjaraTheme.of(context).bodyText1,
-          errorStyle: EjaraTheme.of(context)
-              .bodyText1
-              .copyWith(color: ColorManager.error),
-          errorMaxLines: 1,
-          // borders
-          enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(16),
-            borderSide: BorderSide(
-              color: EjaraTheme.of(context).primaryColor!,
-            ),
-          ),
-          focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(16),
-            borderSide: BorderSide(
-              color: EjaraTheme.of(context).primaryColor!,
-            ),
-          ),
-          errorBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(16),
-            borderSide: BorderSide(
-              color: ColorManager.error,
-            ),
-          ),
-          focusedErrorBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(16),
-            borderSide: BorderSide(
-              color: ColorManager.error,
-            ),
-          ),
-          // prefix
-          prefixIconColor: EjaraTheme.of(context).primaryColor!,
-          prefixStyle: EjaraTheme.of(context).bodyText1.copyWith(
-                fontSize: 18,
-                color: EjaraTheme.of(context).ghostWhite,
-              ),
-          // surfix
-          suffixIconColor: EjaraTheme.of(context).primaryColor!,
-        ),
-      ),
-      themeMode: ThemeMode.light,
-      title: 'Ejara',
-      home: const LoginView(),
     );
   }
 }

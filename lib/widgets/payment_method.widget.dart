@@ -19,51 +19,55 @@ class PaymentMethodWidget extends StatelessWidget {
 
     return InkWell(
       onTap: () => _modalBottomSheetMenu(context, theme, size),
-      child: Container(
-        padding: const EdgeInsets.only(
-          top: 10,
-          bottom: 15,
-        ),
-        decoration: BoxDecoration(
-          border: Border(
-            bottom: BorderSide(
-              width: 1.0,
-              color: theme.primaryColor!.withOpacity(0.1),
-            ),
+      child: _buildPaymentMethodDisplay(theme, size),
+    );
+  }
+
+  Container _buildPaymentMethodDisplay(EjaraTheme theme, Size size) {
+    return Container(
+      padding: const EdgeInsets.only(
+        top: 10,
+        bottom: 15,
+      ),
+      decoration: BoxDecoration(
+        border: Border(
+          bottom: BorderSide(
+            width: 1.0,
+            color: theme.primaryColor!.withOpacity(0.1),
           ),
         ),
-        child: Row(
-          children: [
-            CircleAvatar(
-              backgroundColor: theme.secondaryColor!.withOpacity(0.1),
-              radius: size.height * 0.025,
-              child: Icon(
-                Remix.money_dollar_circle_line,
-                color: theme.iconColor,
-              ),
+      ),
+      child: Row(
+        children: [
+          CircleAvatar(
+            backgroundColor: theme.secondaryColor!.withOpacity(0.1),
+            radius: size.height * 0.025,
+            child: Icon(
+              Remix.money_dollar_circle_line,
+              color: theme.iconColor,
             ),
-            const SizedBox(width: 10),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Cash payment',
-                    style: theme.bodyText1.copyWith(
-                      color: theme.primaryColor,
-                    ),
+          ),
+          const SizedBox(width: 10),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Cash payment',
+                  style: theme.bodyText1.copyWith(
+                    color: theme.primaryColor,
                   ),
-                  Text(
-                    'Fees: Offer',
-                    style: theme.bodyText2.copyWith(
-                      fontWeight: FontWeight.bold,
-                    ),
+                ),
+                Text(
+                  'Fees: Offer',
+                  style: theme.bodyText2.copyWith(
+                    fontWeight: FontWeight.bold,
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
