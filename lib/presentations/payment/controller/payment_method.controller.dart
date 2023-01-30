@@ -44,6 +44,11 @@ class PaymentMethodController extends ChangeNotifier {
     _isLoading = true;
     notifyListeners();
 
+// For Unit Test
+    // final userCtrl = Provider.of<UserController>(context, listen: false);
+    // var response = await _networkService.test_get();
+
+// Normal
     final userCtrl = Provider.of<UserController>(context, listen: false);
     var response = await _networkService.get(
       apiKey: kAPIKEY,

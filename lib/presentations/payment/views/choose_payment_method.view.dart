@@ -38,7 +38,6 @@ class _ChoosePaymentMethodViewState extends State<ChoosePaymentMethodView> {
     var theme = EjaraTheme.of(context);
 
     final user = Provider.of<UserController>(context).user;
-    // final userModel = Provider.of<UserController>(context).userModel;
     final payMetCtrl = Provider.of<PaymentMethodController>(context);
 
     return Scaffold(

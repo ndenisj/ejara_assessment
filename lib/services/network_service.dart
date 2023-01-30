@@ -5,7 +5,6 @@ import 'dart:developer';
 import 'dart:io';
 
 import 'package:ejara_assessment/presentations/login/views/login.view.dart';
-import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 class NetworkService {
@@ -72,6 +71,38 @@ class NetworkService {
             lang: lang,
             token: token,
           ));
+      var decodedRes = jsonDecode(response.body);
+
+      if (response.statusCode >= 400) {
+        return _handleError(decodedRes['message'].toString());
+      }
+
+      return {
+        'reqMessage': 'successful',
+        'reqSuccess': true,
+        'reqResponse': jsonDecode(response.body),
+      };
+    } on SocketException {
+      return _handleError('No Internet connection 😑');
+    } on HttpException {
+      return _handleError("Couldn't find the post 😱");
+    } on FormatException {
+      return _handleError("Bad response format 👎");
+    }
+  }
+
+  Future<Map<String, dynamic>> test_get() async {
+    try {
+      var response = await _client.get(_buildUrl(endpoint: ''),
+          headers: _httpHeader(
+            apiKey: '',
+            client: '',
+            clientID: '',
+            appPlatform: '',
+            appVersion: '',
+            lang: '',
+          ));
+
       var decodedRes = jsonDecode(response.body);
 
       if (response.statusCode >= 400) {
