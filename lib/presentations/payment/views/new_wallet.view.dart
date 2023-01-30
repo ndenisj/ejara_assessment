@@ -50,12 +50,6 @@ class _NewWalletViewState extends State<NewWalletView> {
                 child: SingleChildScrollView(
                   child: Column(
                     children: [
-                      // Text(
-                      //   "New mobile money",
-                      //   style: theme.title1,
-                      //   textAlign: TextAlign.center,
-                      // ),
-                      // SizedBox(height: size.height * 0.02),
                       buildHeader(
                         context: context,
                         theme: theme,
@@ -102,36 +96,28 @@ class _NewWalletViewState extends State<NewWalletView> {
                         ],
                       ),
                       SizedBox(height: size.height * 0.02),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "Phone number",
-                            style: theme.bodyText1.copyWith(fontSize: 14),
-                          ),
-                          const SizedBox(height: 3),
-                          TextFormField(
-                            decoration: const InputDecoration(
-                              hintText: '',
-                            ),
-                          ),
-                        ],
+                      buildTextFormField(
+                        theme: theme,
+                        label: "Phone number",
+                        hint: '',
+                        validator: (val) {
+                          if (val.isEmpty) {
+                            return "Required";
+                          }
+                          return null;
+                        },
                       ),
                       SizedBox(height: size.height * 0.02),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "Full name",
-                            style: theme.bodyText1.copyWith(fontSize: 14),
-                          ),
-                          const SizedBox(height: 3),
-                          TextFormField(
-                            decoration: const InputDecoration(
-                              hintText: '',
-                            ),
-                          ),
-                        ],
+                      buildTextFormField(
+                        theme: theme,
+                        label: "Full name",
+                        hint: '',
+                        validator: (val) {
+                          if (val.isEmpty) {
+                            return "Required";
+                          }
+                          return null;
+                        },
                       ),
                       SizedBox(height: size.height * 0.03),
                       Row(

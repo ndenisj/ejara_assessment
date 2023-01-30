@@ -1,5 +1,7 @@
+import 'package:ejara_assessment/presentations/payment/controller/payment_method.controller.dart';
 import 'package:ejara_assessment/shared/controllers/user.controller.dart';
 import 'package:ejara_assessment/shared/models/user.model.dart';
+import 'package:ejara_assessment/widgets/ejara_button.dart';
 import "package:flutter/material.dart";
 import 'package:provider/provider.dart';
 import 'package:remixicon/remixicon.dart';
@@ -8,8 +10,27 @@ import '../../../utils/ejara_theme.dart';
 import '../../../utils/ejara_utils.dart';
 import '../../../widgets/payment_method.widget.dart';
 
-class ChoosePaymentMethodView extends StatelessWidget {
+class ChoosePaymentMethodView extends StatefulWidget {
   const ChoosePaymentMethodView({super.key});
+
+  @override
+  State<ChoosePaymentMethodView> createState() =>
+      _ChoosePaymentMethodViewState();
+}
+
+class _ChoosePaymentMethodViewState extends State<ChoosePaymentMethodView> {
+  @override
+  void initState() {
+    super.initState();
+    Future.microtask(
+      () => context.read<PaymentMethodController>().getPaymentList(context),
+    );
+  }
+
+  getPaymentMethods() async {
+    await Provider.of<PaymentMethodController>(context, listen: false)
+        .getPaymentList(context);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +38,8 @@ class ChoosePaymentMethodView extends StatelessWidget {
     var theme = EjaraTheme.of(context);
 
     final user = Provider.of<UserController>(context).user;
-    final userModel = Provider.of<UserController>(context).userModel;
+    // final userModel = Provider.of<UserController>(context).userModel;
+    final payMetCtrl = Provider.of<PaymentMethodController>(context);
 
     return Scaffold(
       backgroundColor: theme.primaryBackground,
@@ -40,8 +62,47 @@ class ChoosePaymentMethodView extends StatelessWidget {
                 style: theme.subtitle1.copyWith(color: theme.primaryColor),
               ),
               SizedBox(height: size.height * 0.01),
-              const PaymentMethodWidget(),
-              const PaymentMethodWidget(),
+              if (payMetCtrl.isLoading)
+                Container(
+                  height: size.height * 0.35,
+                  alignment: Alignment.center,
+                  child: Text(
+                    'Loading...',
+                    style: theme.bodyText1,
+                  ),
+                )
+              else if (payMetCtrl.paymentMethods.isEmpty)
+                Container(
+                  height: size.height * 0.35,
+                  alignment: Alignment.center,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'No payment method',
+                        style: theme.bodyText1,
+                      ),
+                      SizedBox(height: 5),
+                      EjaraButtonWidget(
+                        text: 'Reload',
+                        onPressed: () async {
+                          await getPaymentMethods();
+                        },
+                        icon: Icon(Remix.refresh_line),
+                        options: EjaraButtonOptions(
+                          textStyle: TextStyle(),
+                          width: size.width * 0.3,
+                        ),
+                      ),
+                    ],
+                  ),
+                )
+              else
+                for (var i = 0; i < payMetCtrl.paymentMethods.length; i++) ...[
+                  PaymentMethodWidget(
+                    paymentMethod: payMetCtrl.paymentMethods[i],
+                  ),
+                ],
             ],
           ),
         ),

@@ -1,3 +1,4 @@
+import 'package:ejara_assessment/presentations/payment/models/payment_type.model.dart';
 import 'package:flutter/material.dart';
 import 'package:remixicon/remixicon.dart';
 
@@ -6,7 +7,10 @@ import '../utils/ejara_theme.dart';
 class SubPaymentMethodWidget extends StatelessWidget {
   const SubPaymentMethodWidget({
     Key? key,
+    required this.paymentType,
   }) : super(key: key);
+
+  final PaymentType paymentType;
 
   @override
   Widget build(BuildContext context) {

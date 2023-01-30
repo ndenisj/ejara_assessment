@@ -30,13 +30,21 @@ class LoginController extends ChangeNotifier {
     //   apiKey: {"key": "value"},
     //   clientID: {"key": "value"},
     //   endpoint: {"key": "value"},
+    //   appPlatform: {"key": "value"},
+    //   appVersion: {"key": "value"},
+    //   client: {"key": "value"},
+    //   lang: {"key": "value"},
     // );
 
     var response = await _networkService.post(
       apiKey: kAPIKEY,
       clientID: kCLIENTID,
       body: loginRequestToMap(loginPostRequest),
-      endpoint: 'auth/login',
+      endpoint: 'v1/auth/login',
+      appVersion: kAPPVERSION,
+      appPlatform: kAPPPLATFORM,
+      client: kCLIENT,
+      lang: kLANGUAGE,
     );
 
     if (response['reqSuccess']) {

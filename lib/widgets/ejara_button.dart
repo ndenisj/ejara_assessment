@@ -95,7 +95,9 @@ class _EjaraButtonWidgetState extends State<EjaraButtonWidget> {
             } catch (e) {
               // print('On pressed error:\n$e');
             }
-            setState(() => loading = false);
+            if (this.mounted) {
+              setState(() => loading = false);
+            }
           }
         : () => widget.onPressed!();
 

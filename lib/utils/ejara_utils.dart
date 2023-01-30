@@ -22,7 +22,7 @@ Widget buildHeader(
 
 Widget buildTextFormField(
     {required EjaraTheme theme,
-    required TextEditingController controller,
+    TextEditingController? controller,
     required String label,
     Function(String)? validator,
     String? hint,

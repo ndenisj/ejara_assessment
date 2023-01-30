@@ -26,6 +26,10 @@ void main() {
             apiKey: {"key": "value"},
             clientID: {"key": "value"},
             endpoint: {"key": "value"},
+            appPlatform: {"key": "value"},
+            appVersion: {"key": "value"},
+            client: {"key": "value"},
+            lang: {"key": "value"},
           )).thenAnswer(
         (_) async => Future.value(loginResponse),
       );
@@ -54,6 +58,10 @@ void main() {
             apiKey: {"key": "value"},
             clientID: {"key": "value"},
             endpoint: {"key": "value"},
+            appPlatform: {"key": "value"},
+            appVersion: {"key": "value"},
+            client: {"key": "value"},
+            lang: {"key": "value"},
           )).called(1);
     });
 
@@ -74,6 +82,10 @@ void main() {
             apiKey: {"key": "value"},
             clientID: {"key": "value"},
             endpoint: {"key": "value"},
+            appPlatform: {"key": "value"},
+            appVersion: {"key": "value"},
+            client: {"key": "value"},
+            lang: {"key": "value"},
           ));
     });
 
@@ -94,6 +106,10 @@ void main() {
             apiKey: {"key": "value"},
             clientID: {"key": "value"},
             endpoint: {"key": "value"},
+            appPlatform: {"key": "value"},
+            appVersion: {"key": "value"},
+            client: {"key": "value"},
+            lang: {"key": "value"},
           ));
     });
 
@@ -114,6 +130,10 @@ void main() {
           return person.post(
               body: 'body',
               endpoint: 'endpoint',
+              appPlatform: '',
+              appVersion: '',
+              client: '',
+              lang: '',
               apiKey: 'apiKey',
               clientID: 'clientID');
         }).thenAnswer((_) async => Future.value({}));

@@ -1,5 +1,6 @@
 import 'package:ejara_assessment/presentations/login/controller/login.controller.dart';
 import 'package:ejara_assessment/presentations/login/views/login.view.dart';
+import 'package:ejara_assessment/presentations/payment/controller/payment_method.controller.dart';
 import 'package:ejara_assessment/services/network_service.dart';
 import 'package:ejara_assessment/shared/controllers/user.controller.dart';
 import 'package:flutter/material.dart';
@@ -33,6 +34,8 @@ class _EjaraAppState extends State<EjaraApp> {
         ChangeNotifierProvider<LoginController>(
             create: (_) => LoginController(NetworkService())),
         ChangeNotifierProvider<UserController>(create: (_) => UserController()),
+        ChangeNotifierProvider<PaymentMethodController>(
+            create: (_) => PaymentMethodController(NetworkService())),
       ],
       builder: (context, child) => MaterialApp(
         debugShowCheckedModeBanner: false,
