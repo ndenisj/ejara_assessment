@@ -29,6 +29,7 @@ class _NewWalletViewState extends State<NewWalletView> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               InkWell(
+                key: const Key('closeWalletScreen'),
                 onTap: () {
                   Navigator.pop(context);
                 },

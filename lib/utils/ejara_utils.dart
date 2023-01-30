@@ -24,6 +24,7 @@ Widget buildTextFormField(
     {required EjaraTheme theme,
     TextEditingController? controller,
     required String label,
+    Key? key,
     Function(String)? validator,
     String? hint,
     bool obscureText = false,
@@ -37,6 +38,7 @@ Widget buildTextFormField(
       ),
       const SizedBox(height: 3),
       TextFormField(
+        key: key,
         controller: controller,
         obscureText: obscureText,
         validator: (String? value) => validator!(value!),

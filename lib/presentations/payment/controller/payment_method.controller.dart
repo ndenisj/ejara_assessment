@@ -44,8 +44,7 @@ class PaymentMethodController extends ChangeNotifier {
     _isLoading = true;
     notifyListeners();
 
-// For Unit Test
-    // final userCtrl = Provider.of<UserController>(context, listen: false);
+    // For Unit Test
     // var response = await _networkService.test_get();
 
 // Normal

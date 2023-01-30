@@ -99,6 +99,7 @@ class _ChoosePaymentMethodViewState extends State<ChoosePaymentMethodView> {
               else
                 for (var i = 0; i < payMetCtrl.paymentMethods.length; i++) ...[
                   PaymentMethodWidget(
+                    key: Key('paymentMethodKey$i'),
                     paymentMethod: payMetCtrl.paymentMethods[i],
                   ),
                 ],

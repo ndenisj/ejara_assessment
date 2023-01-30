@@ -129,6 +129,7 @@ class _StatefulBottomSheetState extends State<StatefulBottomSheet> {
             child: CircularProgressIndicator(),
           )
         : SingleChildScrollView(
+            key: const Key('paymentTypesBSheet'),
             child: Column(
               children: [
                 Padding(
@@ -137,7 +138,7 @@ class _StatefulBottomSheetState extends State<StatefulBottomSheet> {
                     children: [
                       Expanded(
                         child: Text(
-                          "Select the mobile money method",
+                          "Select the ${payMetCtrl.selectedPayment.titleEn} method",
                           style: theme.subtitle1
                               .copyWith(color: theme.primaryColor),
                           textAlign: TextAlign.center,
@@ -181,6 +182,7 @@ class _StatefulBottomSheetState extends State<StatefulBottomSheet> {
                         const OrDividerWidget(),
                       SizedBox(height: size.height * 0.03),
                       EjaraButtonWidget(
+                        key: const Key('addWalletKey'),
                         text: "Another mobile money method",
                         icon: Icon(
                           Remix.add_line,

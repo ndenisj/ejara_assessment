@@ -60,6 +60,7 @@ class LoginView extends StatelessWidget {
                   header: 'Login to account',
                 ),
                 buildTextFormField(
+                  key: const ValueKey('username'),
                   controller: loginCtrl.usernameCtrl,
                   theme: theme,
                   label: "Username",
@@ -73,6 +74,7 @@ class LoginView extends StatelessWidget {
                 ),
                 SizedBox(height: size.height * 0.02),
                 buildTextFormField(
+                  key: const ValueKey('password'),
                   theme: theme,
                   controller: loginCtrl.passwordCtrl,
                   label: "Password",
@@ -110,6 +112,7 @@ class LoginView extends StatelessWidget {
                 SizedBox(height: size.height * 0.02),
                 EjaraButtonWidget(
                   text: "Sign in",
+                  key: const Key('loginBtn'),
                   onPressed: () async {
                     FocusScope.of(context).unfocus();
 
