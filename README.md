@@ -3,7 +3,7 @@
 Fluter accessment.
 
 - Developed with flutter 3.3.10 stable.
-- Does not need any special configuration to run
+- Does not need any special configuration to run except `flutter pub get` to get the packages
 
 TEST:
 It has Unit test and Integration/widget test
