@@ -210,8 +210,13 @@ class _StatefulBottomSheetState extends State<StatefulBottomSheet> {
                       SizedBox(height: size.height * 0.03),
                       EjaraButtonWidget(
                         text: "Continue",
-                        onPressed: () {},
-                        options: const EjaraButtonOptions(),
+                        onPressed: null,
+                        disabled: payMetCtrl.selectedPaymentType.id != null
+                            ? false
+                            : true,
+                        options: const EjaraButtonOptions(
+                          disabledColor: Colors.grey,
+                        ),
                       ),
                     ],
                   ),

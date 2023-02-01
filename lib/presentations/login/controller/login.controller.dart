@@ -20,7 +20,13 @@ class LoginController extends ChangeNotifier {
     notifyListeners();
   }
 
+  bool _isLoading = false;
+  bool get isLoading => _isLoading;
+
   Future<Map<String, dynamic>> login(BuildContext context) async {
+    _isLoading = true;
+    notifyListeners();
+
     LoginRequest loginPostRequest = LoginRequest(
         log: usernameCtrl.text.trim(), password: passwordCtrl.text);
 
@@ -56,11 +62,18 @@ class LoginController extends ChangeNotifier {
         userCtrl.userModel = UserModel.fromMap(serverResponse);
         userCtrl.user = User.fromMap(serverResponse['data']);
 
+        _isLoading = false;
+        notifyListeners();
+
         return response;
       } else {
+        _isLoading = false;
+        notifyListeners();
         return response;
       }
     } else {
+      _isLoading = false;
+      notifyListeners();
       return response;
     }
   }

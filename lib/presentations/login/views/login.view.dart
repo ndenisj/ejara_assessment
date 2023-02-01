@@ -61,6 +61,7 @@ class LoginView extends StatelessWidget {
                 ),
                 buildTextFormField(
                   key: const ValueKey('username'),
+                  disabled: loginCtrl.isLoading,
                   controller: loginCtrl.usernameCtrl,
                   theme: theme,
                   label: "Username",
@@ -75,6 +76,7 @@ class LoginView extends StatelessWidget {
                 SizedBox(height: size.height * 0.02),
                 buildTextFormField(
                   key: const ValueKey('password'),
+                  disabled: loginCtrl.isLoading,
                   theme: theme,
                   controller: loginCtrl.passwordCtrl,
                   label: "Password",

@@ -28,6 +28,7 @@ Widget buildTextFormField(
     Function(String)? validator,
     String? hint,
     bool obscureText = false,
+    bool disabled = false,
     Widget? suffix}) {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
@@ -38,6 +39,7 @@ Widget buildTextFormField(
       ),
       const SizedBox(height: 3),
       TextFormField(
+        readOnly: disabled,
         key: key,
         controller: controller,
         obscureText: obscureText,

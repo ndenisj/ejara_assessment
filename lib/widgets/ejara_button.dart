@@ -44,9 +44,11 @@ class EjaraButtonWidget extends StatefulWidget {
     this.iconData,
     @required this.options,
     this.showLoadingIndicator = true,
+    this.disabled = false,
   }) : super(key: key);
 
   final String? text;
+  final bool disabled;
   final Widget? icon;
   final IconData? iconData;
   final Function()? onPressed;
@@ -138,9 +140,10 @@ class _EjaraButtonWidgetState extends State<EjaraButtonWidget> {
       height: widget.options!.height ?? size.height * 0.06,
       width: widget.options!.width ?? double.infinity,
       child: ElevatedButton(
-        onPressed: onPressed,
+        onPressed: widget.disabled ? null : onPressed,
         child: textWidget,
         style: ElevatedButton.styleFrom(
+          disabledBackgroundColor: widget.options!.disabledColor,
           backgroundColor: widget.options!.color ?? theme.primaryColor,
           shape: RoundedRectangleBorder(
             borderRadius:
